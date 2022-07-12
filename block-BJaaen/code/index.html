@@ -3,15 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Rock Paper and Scissors</title>
   </head>
   <body>
-    <div>
+    <!-- <div>
        <section class="game">
-        <!--Title -->
+        Title
         <div class="title">Rock Paper Scissor</div>
          
-          <!--Display Score of player and computer -->
+          Display Score of player and computer
         <div class="score"> 
             <div class="playerScore">
                 <h2>Player</h2>
@@ -27,24 +28,38 @@
        
         <div class="move">Choose your move</div>
          
-          <!--Number of moves left before game ends -->
+          Number of moves left before game ends
         <div class="movesleft">Moves Left: 10 </div>
          
-          <!--Options available to player to play game -->
+          Options available to player to play game
         <div class="options">
             <button class="rock">Rock</button>
             <button class="paper">Paper</button>
             <button class="scissor">Scissors</button>   
         </div>
          
-          <!--Final result of game -->
+          Final result of game
         <div class="result"></div>
          
-          <!--Reload the game -->
+          Reload the game
         <button class="reload"></button>
  
       </section>
-    </div>
+    </div> -->
+    <main class="container">
+      <h1>Rock Paper Scissor</h1>
+      <button>Reset</button>
+      <div class="user">
+        <span>YOU:(Select one)</span>
+        <ul class="user-icons"></ul>
+      </div>
+      <div class="computer">
+        <span>COPUTER:(Auto Generated)</span>
+        <ul class="computer-icons"></ul>
+      </div>
+      <div class="result"></div>
+    </main>
+
     <script src="./script.js"></script>
   </body>
 </html>
