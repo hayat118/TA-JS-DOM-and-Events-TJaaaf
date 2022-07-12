@@ -33,9 +33,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+.container{
+  margin-left: 1rem;
+}
 
-.boxes{
+.box{
   width:4rem;
   height:4rem;
   border:0.1rem solid black;
+  display: inline-flex;
 }
