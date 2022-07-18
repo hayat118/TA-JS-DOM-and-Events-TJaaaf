@@ -1,31 +1,28 @@
-const numberButtons = document.querySelectorAll('[data-number]')
-const operationButtons = document.querySelectorAll('[data-operation]')
-const equalsButton = document.querySelector('[data-equals]')
-const deleteButton = document.querySelector('[data-delete]')
-const allClearButton = document.querySelector('[data-all-clear]')
-const previousOperandTextElement = document.querySelector('[data-previous-operand]')
-const currentOperandTextElement = document.querySelector('[data-current-operand]')
+let display=document.querySelector(".display");
+let initialValue=0;
+let allBtn=document.querySelectorAll("button");
 
-class Calculator {
-  constructor(previousOperandTextElement, currentOperandTextElement) {
-    this.previousOperandTextElement = previousOperandTextElement
-    this.currentOperandTextElement = currentOperandTextElement
-    this.clear()
-  };
-  clear() {
+function handleBtnClick(event){
+    // console.log(event.target.innerText)
+    if(event.target.classList.contains("equal")){
+      display.innerText=eval(display.innerText);
+      return;
+    }
+      if(event.target.classList.contains("clear")){
+      display.innerText=initialValue;
+      return;
+    }
+    if(display.innerText==initialValue){
+      display.innerText=event.target.innerText;
+    }else{
+    display.innerText+=event.target.innerText;
+    }
 }
 
-delete() {
-}
+allBtn.forEach((btn)=>{
+  btn.addEventListener("click",handleBtnClick);
+});
 
-appendNumber(number) {
-}
 
-chooseOperation(operation) {
-}
 
-compute() {
-}
-
-updateDisplay() {
-}
+display.innerText=initialValue;
