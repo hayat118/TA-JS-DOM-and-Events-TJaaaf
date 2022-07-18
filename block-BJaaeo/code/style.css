@@ -1,0 +1,57 @@
+ /* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Gotham Rounded, sans-serif;
+  font-weight: normal;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #CBCE91FF, #EA738DFF);
+  background-color: white;
+}
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid>button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px, solid #FFFFFF;
+  outline: none;
+  background-color: rbga(255, 255, 255, 0.75);
+}
+
+.calculator-grid>button:hover {
+  background-color: #a9a9a9;
+}  */
+
+.display{
+  background-color: black;
+  color:white;
+  padding: 0.6rem;
+  font-size: 1.5rem;
+  text-align: right;
+  border-radius: 0.6rem;
+  /* max-width: 40%; */
+}
+.grid-container{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap:0.5rem;
+  grid-template-areas: 
+  "plus minus multiply divide"
+  "seven eight nine equal"
+  "four five six equal"
+  "one two three equal"
+  "dot zero clear equal"
+}
