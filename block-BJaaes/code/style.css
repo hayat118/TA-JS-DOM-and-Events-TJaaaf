@@ -46,3 +46,12 @@ input:valid{
 input:required{
   background-color: rgba(226, 142, 142, 0.2);
 }
+.error{
+  border:2px dashed red;
+  /* display:inline-block; */
+
+}
+.success{
+    border:2px dashed green;
+    /* display:inline-block; */
+}
