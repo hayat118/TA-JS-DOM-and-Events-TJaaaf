@@ -1,30 +1,43 @@
 let input=document.querySelector(`input[type="text"]`);
 let rootElm=document.querySelector(".todo-list");
 
-
- let allTodo=[
-  {
-   name:"Learn Html",
-   isDone:false,
-  },
-  {
-    name:"Learn CSS",
-    isDone:true,
-  },
-];
+let activeButton="all";
 
 
-input.addEventListener("keyup",(event)=>{
-  if(event.keyCode===13){
+let all=document.querySelector(".all");
+let active=document.querySelector(".active");
+let completed=document.querySelector(".completed");
+let clear=document.querySelector(".clear");
+
+
+
+let allTodo=[];
+
+//  let allTodo=[
+//   {
+//    name:"Learn Html",
+//    isDone:false,
+//   },
+//   {
+//     name:"Learn CSS",
+//     isDone:true,
+//   },
+// ];
+
+
+function addTodo(event){
+  if(event.keyCode===13 && event.target.value){
     console.log(event.target.value)
   
   allTodo.push({
     name:event.target.value,
     isDone:false,
-   })
+   });
+   event.target.value=""
    createTodoList();
+   localStorage.setItem("allTodo",JSON.stringify(allTodo));
 }
-})
+}
 
 
 function handleDelete(event){
@@ -45,7 +58,7 @@ function handleChange(event){
 
 
 
-function createTodoList(){
+function createTodoList(data=allTodo){
   rootElm.innerHTML=""
 
         // <li>
@@ -62,6 +75,7 @@ function createTodoList(){
      input.type="checkbox";
      input.id=i;
      input.checked=todo.isDone;
+     input.setAttribute("data-id",i)
      input.addEventListener("change",handleChange);
    let label=document.createElement("label");
      label.for="i";
@@ -75,6 +89,58 @@ function createTodoList(){
    rootElm.append(li)
  })
 
-
 }
 createTodoList();
+
+ all.classList.add("selected");
+
+ clear.addEventListener("click",()=>{
+   allTodo=allTodo.filter((todo)=>!todo.isDone);
+  //  console.log(notCompleted)
+   createTodoList();
+
+ });
+
+ active.addEventListener("click",()=>{
+  let notCompleted=allTodo.filter((todo)=>!todo.isDone);
+   createTodoList(notCompleted);
+   activeButton="active"
+   updateActiveButton();
+ })
+
+ completed.addEventListener("click",()=>{
+   let completedTodo=allTodo.filter((todo)=>todo.isDone);
+   createTodoList(completedTodo);
+   activeButton="completed";
+   updateActiveButton()
+ })
+all.addEventListener("click",()=>{
+  createTodoList();
+  activeButton="all";
+  updateActiveButton();
+})
+
+ function updateActiveButton(btn=activeButton){
+     all.classList.remove("selected")
+     active.classList.remove("selected")
+     completed.classList.remove("selected")
+
+  
+
+
+   if(btn==="all"){
+     all.classList.add("selected")
+   }
+   if(btn==="active"){
+     active.classList.add("selected")
+   }
+   if(btn==="completed"){
+     completed.classList.add("selcted")
+   }
+ }
+
+ updateActiveButton();
+
+
+
+ input.addEventListener("keyup",addTodo);
