@@ -11,3 +11,21 @@ header{
 .container{
   text-align: center;
 }
+.tag1{
+  background-color: black;
+  color:white;
+  padding: 1rem;
+  border:1px solid black;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.tag1:hover{
+  background-color: white;
+  color:black;
+}
+.active{
+  background-color: white;
+  color: black;
+  border:1px solid black;
+}
+
